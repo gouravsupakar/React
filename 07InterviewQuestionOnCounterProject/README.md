@@ -1,8 +1,35 @@
-# React + Vite
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+function App() {
+  const [counter, setCounter] = useState(10)
 
-Currently, two official plugins are available:
+  const addValue = () =>{
+    setCounter(counter + 1)   // they will ask what will happen if here is so many setMethod 
+    setCounter(counter + 1)   // ANS:- the counter variable will just be increased by 1 because of reconciliation and fiber comes into play
+    setCounter(counter + 1)
+    setCounter(counter + 1)
+  }
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  const removeValue = () =>{
+    setCounter(counter - 1)
+    setCounter(counter - 1)
+    setCounter(counter - 1)
+    setCounter(counter - 1)
+  }
+
+  return (
+    <>
+     <h1>Counter project interview questions</h1>
+     <h3>Counter: {counter}</h3>
+     <br />
+     <button onClick={addValue}>Add value +</button>
+     <br /> <br />
+     <button onClick={removeValue}>Remove value -</button>
+    </>
+  )
+}
+
+export default App
